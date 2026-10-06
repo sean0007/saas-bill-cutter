@@ -10,6 +10,7 @@ export const HONESTY =
   "Savings use your own numbers. Self-hosting costs time, servers, and upkeep. Check each project's license before you rely on it.";
 
 export const SIBLING_TOOLS = [
+  { href: "https://pitch-roast.vercel.app", label: "Pitch Roast" },
   { href: "https://fund-fix-flee.vercel.app", label: "Founder Scorecard" },
   { href: "https://japan-trip-brain.vercel.app", label: "Japan Trip Brain" },
   { href: "https://hotel-ota-calculator.vercel.app", label: "Hotel OTA Calculator" },

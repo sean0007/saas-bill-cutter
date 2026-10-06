@@ -27,12 +27,13 @@ Free JSON API. No key, no signup, CORS open. Every endpoint takes GET query para
   every supported paid tool id with its open-source swap, license, effort, and caveat
 - OpenAPI 3.1 spec: https://saas-bill-cutter.vercel.app/openapi.json
 - Plugin manifest: https://saas-bill-cutter.vercel.app/.well-known/ai-plugin.json
-- MCP (remote, streamable HTTP, no auth), with this and 8 sibling tools: https://free-agent-tools.vercel.app/mcp
+- MCP (remote, streamable HTTP, no auth), with this and 9 sibling tools: https://free-agent-tools.vercel.app/mcp
 
 ## Disclaimer
 Educational estimate only. Not financial, legal, or licensing advice. Self-hosting costs time, servers, and upkeep. Check each project's license before you rely on it. No affiliate links.
 
 ## Other free tools by the same maker
+- Pitch Roast: https://pitch-roast.vercel.app
 - Founder Scorecard: https://fund-fix-flee.vercel.app
 - Japan Trip Brain: https://japan-trip-brain.vercel.app
 - Hotel OTA Commission Calculator: https://hotel-ota-calculator.vercel.app
