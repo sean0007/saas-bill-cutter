@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import { calculate, SETUP_HOURS } from "@/lib/calc";
 import { TOOLS } from "@/lib/tools";
 import { CardDisclaimer } from "@/components/card-disclaimer";
+import { ShareBar } from "@/components/share-bar";
+import { PUBLIC_URL, resultPath } from "@/lib/share";
 
 const money = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
 const effortLabel = { 1: "Easy", 2: "Medium", 3: "Hard" } as const;
@@ -11,20 +13,23 @@ const verdictColor = { SWITCH: "text-teal-200", MAYBE: "text-amber", KEEP: "text
 
 const SAMPLE: Record<string, string> = { typeform: "99", calendly: "120", intercom: "400" };
 
-export function Calculator() {
-  const [spend, setSpend] = useState<Record<string, string>>({});
-  const [hosting, setHosting] = useState("20");
-  const [rate, setRate] = useState("50");
+export type CalculatorInitial = { spend: Record<string, string>; hosting: string; rate: string };
 
-  const result = useMemo(
-    () =>
-      calculate({
-        spend: Object.fromEntries(Object.entries(spend).map(([k, v]) => [k, Number(v)])),
-        hostingPerMonth: Number(hosting),
-        hourlyRate: Number(rate),
-      }),
+export function Calculator({ initial }: { initial?: CalculatorInitial }) {
+  const [spend, setSpend] = useState<Record<string, string>>(initial?.spend ?? {});
+  const [hosting, setHosting] = useState(initial?.hosting ?? "20");
+  const [rate, setRate] = useState(initial?.rate ?? "50");
+
+  const inputs = useMemo(
+    () => ({
+      spend: Object.fromEntries(Object.entries(spend).map(([k, v]) => [k, Number(v)])),
+      hostingPerMonth: Number(hosting),
+      hourlyRate: Number(rate),
+    }),
     [spend, hosting, rate],
   );
+  const result = useMemo(() => calculate(inputs), [inputs]);
+  const shareUrl = `${PUBLIC_URL}${resultPath(inputs)}`;
 
   const input =
     "w-28 rounded-xl border border-line bg-black/40 px-3 py-2 text-right font-mono text-sm text-foreground focus:border-amber";
@@ -168,6 +173,21 @@ export function Calculator() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-6 border-t border-line pt-4" data-testid="share-result">
+                <p className="text-xs text-muted">
+                  Share this result. The link carries your numbers, so anyone who opens it sees the same math.
+                  Nothing is stored.
+                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <ShareBar
+                    url={shareUrl}
+                    text={`${result.verdict}: ${result.headline}. Open-source swaps for my SaaS bill:`}
+                  />
+                  <a href={resultPath(inputs)} className="text-sm text-muted underline underline-offset-2 hover:text-foreground">
+                    Open result page
+                  </a>
+                </div>
+              </div>
             </>
           )}
         </div>
