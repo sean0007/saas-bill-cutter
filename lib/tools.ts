@@ -90,7 +90,7 @@ export const TOOLS: Tool[] = [
     paid: "Pipedrive / HubSpot Sales",
     category: "CRM",
     swap: "Frappe CRM",
-    repo: "https://github.com/frappe/crm",
+    repo: "https://github.com/frappe/crm/",
     license: "AGPL-3.0",
     licenseNote: "Copyleft. If you modify it and offer it to others over a network, you must share your changes.",
     stars: "3.6k",
