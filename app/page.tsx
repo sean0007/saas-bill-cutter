@@ -62,7 +62,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "What about Typeform, FreshBooks, Pipedrive, HubSpot, GoHighLevel, or Chargebee?",
-    a: `The calculator covers these swaps: Typeform → ${swapLine("typeform")}; FreshBooks → ${swapLine("freshbooks")}; Pipedrive / HubSpot Sales → ${swapLine("pipedrive")}; GoHighLevel / ActiveCampaign → ${swapLine("gohighlevel")}; Chargebee → ${swapLine("chargebee")}. Each result lists the main catch, for example that Mautic still needs a paid email sender and Autumn still pays Stripe's card fees.`,
+    a: `The calculator covers these swaps: Typeform → ${swapLine("typeform")}; FreshBooks → ${swapLine("freshbooks")}; Pipedrive / HubSpot Sales → ${swapLine("pipedrive")}; GoHighLevel / ActiveCampaign → ${swapLine("gohighlevel")}; Chargebee → ${swapLine("chargebee")}. Each result lists the main catch, for example that Mautic still needs a paid email sender and Lago still pays Stripe's card fees.`,
   },
   {
     q: "What are the hidden costs of self-hosting open-source software?",
